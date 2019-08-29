@@ -1,4 +1,5 @@
 import API from "@/api/imgur";
+import router from "@/router";
 
 const state = {
   images: []
@@ -11,10 +12,9 @@ const actions = {
     const response = await API.fetchImages(rootState.auth.token);
     commit("setImages", response ? response.data.data : []);
   },
-  async uploadImages({ commit, rootState }, images) {
-    console.log(images);
-    // const response = await API.uploadImages(rootState.auth.token);
-    // commit("setImages", response ? response.data.data : []);
+  async uploadImages({ rootState }, images) {
+    await API.uploadImages(images, rootState.auth.token);
+    router.push("/");
   }
 };
 const mutations = {

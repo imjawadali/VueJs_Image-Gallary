@@ -13,26 +13,18 @@ const actions = {
   login: () => API.login(),
   finalizeLogin: ({ commit }, hash) => {
     const obj = qs.parse(hash.replace("#", ""));
-    const object = {
-      token: obj.access_token,
-      route: "/"
-    };
-    commit("setToken", object);
+    commit("setToken", obj.access_token);
     window.localStorage.setItem("token", obj.access_token);
   },
   logout: ({ commit }) => {
-    const object = {
-      token: null,
-      route: "/upload"
-    };
-    commit("setToken", object);
+    commit("setToken", null);
     window.localStorage.removeItem("token");
   }
 };
 const mutations = {
-  setToken: (state, object) => {
-    state.token = object.token;
-    router.push(object.route);
+  setToken: (state, token) => {
+    state.token = token;
+    router.push("/");
   }
 };
 

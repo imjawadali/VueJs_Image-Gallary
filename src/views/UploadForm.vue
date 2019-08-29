@@ -1,5 +1,6 @@
 <template>
   <div class="dropper">
+    <!-- eslint-disable-next-line -->
     <input type="file" @change="uploadImages($event.target.files)" multiple accept="image/*" />
     <span>Drag files here</span>
   </div>

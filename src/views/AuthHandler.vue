@@ -1,6 +1,6 @@
 <template>
   <div class="authHandler">
-    <h1>Please wait . . .</h1>
+    <h1>Please wait . . . !</h1>
   </div>
 </template>
 
